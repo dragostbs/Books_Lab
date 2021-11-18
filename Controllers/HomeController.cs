@@ -19,9 +19,12 @@ namespace Dragos_Boscan_L2.Controllers
         { 
             _context = context;
         }
-      
+        public IActionResult Chat()
+        {
+            return View();
+        }
 
-         private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> _logger;
 
        /* public HomeController(ILogger<HomeController> logger)
         {
