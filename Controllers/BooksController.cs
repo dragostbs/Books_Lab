@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Dragos_Boscan_L2.Data;
 using Dragos_Boscan_L2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Dragos_Boscan_L2
 {
+    [Authorize(Roles = "Employee")]
     public class BooksController : Controller
     {
         private readonly LibraryContext _context;
@@ -20,6 +22,7 @@ namespace Dragos_Boscan_L2
         }
 
         // GET: Books
+        [AllowAnonymous]
         public async Task<IActionResult> Index(
         string sortOrder,
         string currentFilter,
@@ -66,6 +69,7 @@ namespace Dragos_Boscan_L2
         }
 
         // GET: Books/Details/5
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
