@@ -20,7 +20,8 @@ namespace Dragos_Boscan_L2.Areas.Identity
                         context.Configuration.GetConnectionString("IdentityContextConnection")));
 
                 services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-                        .AddEntityFrameworkStores<IdentityContext>();
+                        .AddEntityFrameworkStores<IdentityContext>()
+                        .AddDefaultUI();
             });
         }
     }
